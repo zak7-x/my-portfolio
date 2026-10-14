@@ -1,6 +1,8 @@
 from pathlib import Path
 import os
 
+from django.template.context_processors import static
+
 # BASE_DIR points to the main folder containing manage.py.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -118,8 +120,40 @@ STORAGES = {
     },
 }
 
-# This folder contains shared CSS and images for the whole website.
-
 
 # The default ID field type for new Django models.
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+
+
+# Send Django errors to the Render logs.
+LOGGING = {
+    "version": 1,
+    "disable_existing_loggers": False,
+
+    # This handler prints errors to the console.
+    "handlers": {
+        "console": {
+            "class": "logging.StreamHandler",
+            "level": "ERROR",
+            "formatter": "verbose",
+        },
+    },
+
+    # This format includes the error level, time, and message.
+    "formatters": {
+        "verbose": {
+            "format": "{levelname} {asctime} {name}: {message}",
+            "style": "{",
+        },
+    },
+
+    # Log Django request errors, including their tracebacks.
+    "loggers": {
+        "django.request": {
+            "handlers": ["console"],
+            "level": "ERROR",
+            "propagate": False,
+        },
+    },
+}
