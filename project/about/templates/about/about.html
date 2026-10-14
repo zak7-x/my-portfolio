@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}About Me | Zakwaan{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'about/css/about.css' %}">
+{% endblock %}
+
+{% block content %}
+<section class="about-page">
+    <div class="about-text">
+        <p class="small-heading">A LITTLE ABOUT ME</p>
+        <h1>About Me</h1>
+
+        <p>
+            My name is Zakwaan, and I am a student who enjoys learning about
+            technology and how computer systems work. I am building my skills
+            step by step through schoolwork, practice, and personal projects.
+        </p>
+
+        <h2>What I am learning</h2>
+        <p>
+            I have been learning Python, object-oriented programming, SQL
+            databases, and Django. I enjoy understanding how data is stored,
+            how programs are organised, and how different parts of a website
+            work together.
+        </p>
+
+        <h2>Learning by building</h2>
+        <p>
+            I try to practise what I learn by creating small systems and
+            solving problems. My practice includes database projects,
+            Python classes, and a Django website. These projects help me
+            improve my problem-solving and debugging skills.
+        </p>
+
+        <h2>My interests and goals</h2>
+        <p>
+            I am interested in artificial intelligence, robotics, databases,
+            and software development. My goal is to keep improving, build
+            useful projects, and prepare for further study in technology
+            and engineering.
+        </p>
+    </div>
+
+    <div class="about-photo">
+        <!-- Add your portrait to static/images/my-photo.jpg when you are ready. -->
+        <img src="{% static 'images/my-photo.jpg' %}" alt="Portrait of Zakwan">
+        <p class="photo-note">My photo</p>
+    </div>
+</section>
+{% endblock %}

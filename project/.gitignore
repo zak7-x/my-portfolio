@@ -1,0 +1,13 @@
+# Do not upload the virtual environment to GitHub.
+.venv/
+venv/
+
+# Python temporary files.
+__pycache__/
+*.py[cod]
+
+# Local database created by Django.
+db.sqlite3
+
+# PyCharm settings can be kept local.
+.idea/

@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Projects | Zakwaan{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'project/css/projects.css' %}">
+{% endblock %}
+
+{% block content %}
+<section class="projects-page">
+    <p class="small-heading">WHAT I HAVE BEEN WORKING ON</p>
+    <h1>My Projects</h1>
+    <p class="projects-intro">
+        These are examples of projects and practice work from my learning.
+        I will add screenshots as each project develops.
+    </p>
+
+    <div class="project-list">
+        {% for item in project_list %}
+        <div class="project-card">
+            <div class="project-image">
+                <!-- Add a screenshot later and update the image path in views.py. -->
+                <span>Project image coming soon</span>
+            </div>
+
+            <div class="project-details">
+                <h2>{{ item.name }}</h2>
+                <p>{{ item.description }}</p>
+                <p class="technology"><strong>Technologies:</strong> {{ item.technologies }}</p>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</section>
+{% endblock %}

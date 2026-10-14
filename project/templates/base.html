@@ -1,0 +1,36 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>{% block title %}Zakwaan | Portfolio{% endblock %}</title>
+
+    <!-- Shared CSS for the entire website -->
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+
+    <!-- CSS specific to each page -->
+    {% block extra_css %}{% endblock %}
+
+    <!-- Icons for GitHub, email, and other links -->
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+</head>
+<body>
+
+    <!-- Reusable navigation bar -->
+    <header class="site-header">
+        {% include 'partials/navbar.html' %}
+    </header>
+
+    <!-- Each page inserts its content here -->
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+
+    <!-- Reusable footer -->
+    {% include 'partials/footer.html' %}
+
+</body>
+</html>

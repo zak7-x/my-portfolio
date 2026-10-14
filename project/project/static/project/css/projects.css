@@ -1,0 +1,81 @@
+/* This file styles only the Projects page. */
+
+.projects-page {
+    max-width: 1100px; /* Keep the page content a comfortable width. */
+    margin: 0 auto; /* Centre the content on the screen. */
+    padding: 55px 24px; /* Add space around the content. */
+}
+
+.projects-page h1 {
+    font-size: 42px; /* Make the main heading stand out. */
+    margin-top: 8px; /* Add a little space above the heading. */
+    margin-bottom: 12px; /* Add space below the heading. */
+}
+
+.projects-intro {
+    max-width: 700px; /* Keep the introduction easy to read. */
+    line-height: 1.7; /* Add space between lines of text. */
+    color: #d7e5e8; /* Use a soft light colour. */
+    margin-bottom: 35px; /* Separate the introduction from the cards. */
+}
+
+.project-list {
+    display: flex; /* Place the project cards in a column. */
+    flex-direction: column; /* Put one project card below another. */
+    gap: 24px; /* Add space between project cards. */
+}
+
+.project-card {
+    display: flex; /* Put the image area and project details side by side. */
+    gap: 24px; /* Leave space between the image and text. */
+    padding: 22px; /* Add space inside each card. */
+    background-color: #12363d; /* Give the card a slightly lighter teal background. */
+    border: 1px solid #24535e; /* Add a subtle border around the card. */
+    border-radius: 14px; /* Round the corners of the card. */
+}
+
+.project-image {
+    width: 230px; /* Set the width of the future screenshot area. */
+    min-height: 155px; /* Make the screenshot area tall enough to see. */
+    display: flex; /* Centre the placeholder words. */
+    align-items: center; /* Centre the words vertically. */
+    justify-content: center; /* Centre the words horizontally. */
+    text-align: center; /* Centre text if it wraps onto another line. */
+    padding: 12px; /* Keep words away from the edges. */
+    box-sizing: border-box; /* Include padding in the set width. */
+    background-color: #0b272d; /* Use a darker background for the placeholder. */
+    color: #a9c7cd; /* Make placeholder text readable but subtle. */
+    border: 1px dashed #397e91; /* Show where a screenshot can be added. */
+    border-radius: 10px; /* Slightly round the placeholder corners. */
+}
+
+.project-details {
+    flex: 1; /* Let the description use the remaining width. */
+}
+
+.project-details h2 {
+    margin-top: 0; /* Remove extra space above the project title. */
+    margin-bottom: 12px; /* Add space below the title. */
+    color: #76c8ff; /* Use a blue accent for the project title. */
+}
+
+.project-details p {
+    line-height: 1.7; /* Make the project description easier to read. */
+    color: #d7e5e8; /* Use a soft light colour for paragraph text. */
+}
+
+.project-details .technology {
+    color: #a9c7cd; /* Make the technology line slightly softer. */
+    font-size: 14px; /* Keep the technology line a little smaller. */
+}
+
+/* On a small screen, place each image area above its project details. */
+@media (max-width: 700px) {
+    .project-card {
+        flex-direction: column; /* Stack image and text vertically. */
+    }
+
+    .project-image {
+        width: 100%; /* Let the image placeholder fill the card width. */
+    }
+}

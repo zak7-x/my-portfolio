@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Home | Zakwaan{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/home.css' %}">
+{% endblock %}
+
+{% block content %}
+<section class="home-hero">
+    <p class="small-heading">WELCOME TO MY PERSONAL WEBSITE</p>
+    <h1>Hi, I'm <span>Zakwaan.</span></h1>
+    <p class="home-summary">
+        I'm a student passionate about technology, programming, databases,
+        artificial intelligence and robotics. I enjoy learning how things
+        work, solving problems and turning ideas into practical projects.
+    </p>
+
+    <div class="home-links">
+        <a href="{% url 'about' %}" class="home-link">
+            <i class="fa-solid fa-user"></i>
+            <span>About Me</span>
+        </a>
+        <a href="{% url 'projects' %}" class="home-link">
+            <i class="fa-solid fa-folder-open"></i>
+            <span>My Projects</span>
+        </a>
+        <a href="https://github.com/YOUR-GITHUB-USERNAME" target="_blank" rel="noopener noreferrer" class="home-link">
+            <i class="fa-brands fa-github"></i>
+            <span>GitHub</span>
+        </a>
+        <a href="{% url 'contact' %}" class="home-link">
+            <i class="fa-solid fa-envelope"></i>
+            <span>Contact Me</span>
+        </a>
+    </div>
+</section>
+{% endblock %}
