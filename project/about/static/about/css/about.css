@@ -52,28 +52,27 @@
 }
 
 
-/* The frame that holds the profile illustration */
+/* Style the avatar placeholder */
 .profile-avatar {
     width: 100%;
     max-width: 300px;
     height: 350px;
     margin: 0 auto;
 
-    /* Centre the person inside the frame */
+    /* Centre the head and body inside the avatar */
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
 
-    /* Dark navy blue background */
+    /* Use the website's dark blue and teal colours */
     background: linear-gradient(to bottom, #0f172a, #12363d);
-
     border-radius: 14px;
     border: 2px solid #397e91;
     overflow: hidden;
 }
 
-/* The person's head */
+/* Create the circular head */
 .avatar-head {
     width: 90px;
     height: 90px;
@@ -82,17 +81,13 @@
     margin-bottom: 12px;
 }
 
-/* The person's shoulders and upper body */
+/* Create the upper-body shape */
 .avatar-body {
     width: 190px;
     height: 145px;
-
-    /* Dark blue clothing */
     background-color: #1e40af;
-
     border-radius: 100px 100px 20px 20px;
 }
-
 
 
 /* On a small screen, put the photo below the writing. */
