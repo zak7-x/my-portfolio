@@ -1,16 +1,28 @@
 from pathlib import Path
+import os
 
 # BASE_DIR points to the main folder containing manage.py.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 # Keep this key private if you deploy the website publicly.
-SECRET_KEY = "django-insecure-change-this-before-publishing"
+# Read the secret key from the server environment.
+SECRET_KEY = os.environ.get(
+    "DJANGO_SECRET_KEY",
+    "django-insecure-local-development-only"
+)
 
-# DEBUG is useful while learning. Turn it off before a real deployment.
-DEBUG = True
+# Enable debugging locally, but disable it on the live server.
+DEBUG = os.environ.get("DJANGO_DEBUG", "True").lower() == "true"
 
-# These are the allowed hosts for local development.
-ALLOWED_HOSTS = []
+# Allow local development and any hosts configured on the server.
+ALLOWED_HOSTS = [
+    host.strip()
+    for host in os.environ.get(
+        "DJANGO_ALLOWED_HOSTS",
+        "localhost,127.0.0.1"
+    ).split(",")
+    if host.strip()
+]
 
 # Django apps that are included in this website.
 INSTALLED_APPS = [
@@ -28,6 +40,10 @@ INSTALLED_APPS = [
 # Middleware helps Django process each request and response.
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
+
+    # Serve static files efficiently on the live website.
+    "whitenoise.middleware.WhiteNoiseMiddleware",
+
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.common.CommonMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
@@ -83,10 +99,27 @@ USE_I18N = True
 USE_TZ = True
 
 # Django's static URL starts the path used for CSS and images.
+# URL prefix used for static files.
 STATIC_URL = "static/"
 
-# This folder contains shared CSS and images for the whole website.
+# Folder containing shared CSS, JavaScript, and images.
 STATICFILES_DIRS = [BASE_DIR / "static"]
+
+# Folder where Django collects static files for deployment.
+STATIC_ROOT = BASE_DIR / "staticfiles"
+
+# Enable compressed static-file storage for production.
+STORAGES = {
+    "default": {
+        "BACKEND": "django.core.files.storage.FileSystemStorage",
+    },
+    "staticfiles": {
+        "BACKEND": "whitenoise.storage.CompressedManifestStaticFilesStorage",
+    },
+}
+
+# This folder contains shared CSS and images for the whole website.
+
 
 # The default ID field type for new Django models.
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
