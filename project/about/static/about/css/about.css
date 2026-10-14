@@ -52,31 +52,47 @@
 }
 
 
-/* Placeholder shown until you add your photo */
-.photo-placeholder {
+/* The frame that holds the profile illustration */
+.profile-avatar {
     width: 100%;
     max-width: 300px;
     height: 350px;
     margin: 0 auto;
 
-    /* Centre the placeholder text */
+    /* Centre the person inside the frame */
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     align-items: center;
-    text-align: center;
+    justify-content: center;
 
-    /* Match the blue theme of the website */
-    background-color: #12363d;
-    border: 2px dashed #76c8ff;
+    /* Dark navy blue background */
+    background: linear-gradient(to bottom, #0f172a, #12363d);
+
     border-radius: 14px;
-    padding: 20px;
+    border: 2px solid #397e91;
+    overflow: hidden;
 }
 
-/* Style the message inside the placeholder */
-.photo-placeholder p {
-    color: #d7e5e8;
-    font-size: 16px;
+/* The person's head */
+.avatar-head {
+    width: 90px;
+    height: 90px;
+    background-color: #64748b;
+    border-radius: 50%;
+    margin-bottom: 12px;
 }
+
+/* The person's shoulders and upper body */
+.avatar-body {
+    width: 190px;
+    height: 145px;
+
+    /* Dark blue clothing */
+    background-color: #1e40af;
+
+    border-radius: 100px 100px 20px 20px;
+}
+
 
 
 /* On a small screen, put the photo below the writing. */
