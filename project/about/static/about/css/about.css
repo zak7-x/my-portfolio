@@ -51,6 +51,34 @@
     color: #a9c7cd; /* Use a softer colour for the note. */
 }
 
+
+/* Placeholder shown until you add your photo */
+.photo-placeholder {
+    width: 100%;
+    max-width: 300px;
+    height: 350px;
+    margin: 0 auto;
+
+    /* Centre the placeholder text */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+    /* Match the blue theme of the website */
+    background-color: #12363d;
+    border: 2px dashed #76c8ff;
+    border-radius: 14px;
+    padding: 20px;
+}
+
+/* Style the message inside the placeholder */
+.photo-placeholder p {
+    color: #d7e5e8;
+    font-size: 16px;
+}
+
+
 /* On a small screen, put the photo below the writing. */
 @media (max-width: 700px) {
     .about-page {
