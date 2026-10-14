@@ -1,5 +1,6 @@
 from django.shortcuts import render
 
+
 def projects(request):
     # These example cards can be edited as your projects grow.
     project_list = [
