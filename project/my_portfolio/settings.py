@@ -127,6 +127,7 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 
 # Send Django errors to the Render logs.
+
 LOGGING = {
     "version": 1,
     "disable_existing_loggers": False,
@@ -157,3 +158,24 @@ LOGGING = {
         },
     },
 }
+
+
+
+# Email settings for the Contact form
+
+EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
+
+# Gmail's SMTP server details
+EMAIL_HOST = "smtp.gmail.com"
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+
+# The Gmail account used to send messages
+EMAIL_HOST_USER = "zakwaanmohammad7@gmail.com"
+
+# Read the App Password from an environment variable
+
+EMAIL_HOST_PASSWORD = os.environ.get("EMAIL_HOST_PASSWORD", "")
+
+# Use the same email address to receive contact messages
+DEFAULT_FROM_EMAIL = EMAIL_HOST_USER

@@ -1,27 +1,39 @@
 from django.shortcuts import render
+from django.core.mail import send_mail
+
 
 def contact(request):
-    # Start with an empty message for the form.
     success_message = ""
 
-    # This block runs when the visitor submits the form.
     if request.method == "POST":
-        # Read the submitted fields from the form.
+        # Get the information entered in the form.
         name = request.POST.get("name", "").strip()
         email = request.POST.get("email", "").strip()
         subject = request.POST.get("subject", "").strip()
         message = request.POST.get("message", "").strip()
 
-        # Check that every field has been filled in.
         if name and email and subject and message:
-            success_message = (
-                "Thank you, " + name + ". The form was submitted successfully. "
-                "This starter project does not email the message yet."
-            )
-        else:
-            success_message = "Please complete every field before submitting."
 
-    # Show the contact page and any message above the form.
+            # Prepare the email content.
+            email_message = (
+                    "Name: " + name + "\n"
+                                      "Email: " + email + "\n\n"
+                    + message
+            )
+
+            # Send the email to your Gmail inbox.
+            send_mail(
+                subject,
+                email_message,
+                None,
+                ["zakwaanmohammad7@gmail.com"],
+            )
+
+            # Display a success message.
+            success_message = "Your message has been sent!"
+        else:
+            success_message = "Please complete every field."
+
     return render(
         request,
         "contact/contact.html",
